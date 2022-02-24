@@ -1,24 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {useListComposers} from "./hooks/useListComposers";
+import {Button, Container} from "@mui/material";
+import {ComposerList} from "./component/ComposerList";
 
 const App = () => {
+  const {composers, isLoading, fetchPopularComposers} = useListComposers();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo"/>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Container>
+        <h1>Popular Composers</h1>
+        <Button variant="contained" onClick={fetchPopularComposers}>Search</Button>
+        <ComposerList composers={composers} isLoading={isLoading}/>
+      </Container>
     </div>
   );
 }
