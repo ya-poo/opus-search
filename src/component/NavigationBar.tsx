@@ -23,7 +23,7 @@ const NavigationBar: VFC = () => {
           component="div"
           sx={{ ml: 5, mr: 5 }}
         >
-          Open Opus
+          Opus Search
         </Typography>
 
         <Button
