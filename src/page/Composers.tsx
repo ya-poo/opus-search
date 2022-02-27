@@ -1,8 +1,9 @@
 import {ComposerTable} from "../component/ComposerTable";
 import {useCallback, useEffect, useState, VFC} from "react";
 import {AppBar, Box, Button, CircularProgress, Container, Toolbar} from "@mui/material";
-import {Composer, ComposerResponse} from "../api/ComposerResponse";
+import {ComposerResponse} from "../api/ComposerResponse";
 import {apiClient} from "../api/lib/apiClient";
+import {Composer} from "../api/common";
 
 const Periods = [
   'Medieval',
@@ -45,7 +46,7 @@ export const ComposersPage: VFC = () => {
   useEffect(() => {
     fetchComposers()
       .catch(console.error)
-  }, [fetchComposers])
+  }, [fetchComposers]);
 
   return (
     <>

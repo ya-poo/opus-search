@@ -1,13 +1,18 @@
 import {VFC} from "react";
-import {Composer} from "../api/ComposerResponse";
 import MaterialTable from "@material-table/core";
-import {Navigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import {Composer} from "../api/common";
 
 interface ComposerTableProps {
   composers: Composer[],
 }
 
 export const ComposerTable: VFC<ComposerTableProps> = (props) => {
+  const navigate = useNavigate();
+
+  const onRowClick = (id: number) => {
+    navigate(`/composers/${id}`);
+  }
 
   return (
     <MaterialTable
@@ -34,11 +39,9 @@ export const ComposerTable: VFC<ComposerTableProps> = (props) => {
           id: composer.id,
         }
       })}
-      onRowClick={(event, rowData) => {
-        if (rowData !== undefined) {
-          return <Navigate to={`/composers/${rowData.id}}`} replace/>
-        }
-      }}
+      onRowClick={(_, rowData) =>
+        rowData ? onRowClick(rowData.id) : {}
+      }
       options={{
         search: true,
         showTitle: false,
