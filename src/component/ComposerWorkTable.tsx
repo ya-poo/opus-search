@@ -78,6 +78,12 @@ const ComposerWorkTable: VFC<ComposerWorkTableProps> = (props) => {
           search: true,
           paging: false,
         }}
+        onRowClick={(_, rowData) => {
+          if (rowData !== undefined) {
+            const query = `${rowData.title} ${props.composer.name}`;
+            window.open(`https://www.youtube.com/results?search_query=${query}`);
+          }
+        }}
       />
     </>
   );
