@@ -60,6 +60,7 @@ export const ComposerWorkTable: VFC<ComposerWorkTableProps> = (props) => {
         title={`Works of ${props.composer.name}`}
         columns={[
           {title: 'Title', field: 'title'},
+          {title: 'Subtitle', field: 'subtitle'},
           {title: 'Genre', field: 'genre'},
         ]}
         data={props.works.filter((work) => {
@@ -69,7 +70,8 @@ export const ComposerWorkTable: VFC<ComposerWorkTableProps> = (props) => {
             title: work.title,
             popular: work.popular,
             recommended: work.recommended,
-            genre: work.genre
+            genre: work.genre,
+            subtitle: work.subtitle
           }
         })}
         options={{
