@@ -1,16 +1,14 @@
 import {VFC} from "react";
 import {Composer} from "../api/ComposerResponse";
 import MaterialTable from "@material-table/core";
+import {Navigate} from "react-router-dom";
 
 interface ComposerTableProps {
   composers: Composer[],
-  isLoading: boolean
 }
 
 export const ComposerTable: VFC<ComposerTableProps> = (props) => {
-  // if (props.isLoading || props.composers.length === 0) {
-  //   return <></>
-  // }
+
   return (
     <MaterialTable
       columns={[
@@ -32,12 +30,19 @@ export const ComposerTable: VFC<ComposerTableProps> = (props) => {
           birth: composer.birth,
           death: composer.death,
           epoch: composer.epoch,
-          portrait: composer.portrait
+          portrait: composer.portrait,
+          id: composer.id,
         }
       })}
+      onRowClick={(event, rowData) => {
+        if (rowData !== undefined) {
+          return <Navigate to={`/composers/${rowData.id}}`} replace/>
+        }
+      }}
       options={{
         search: true,
         showTitle: false,
+        paging: false,
       }}
     />
   )
