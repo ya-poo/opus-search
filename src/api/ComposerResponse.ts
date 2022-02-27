@@ -1,4 +1,4 @@
-import {Composer, Status} from "./common";
+import { Composer, Status } from './common';
 
 export interface ComposerResponse {
   status: Status

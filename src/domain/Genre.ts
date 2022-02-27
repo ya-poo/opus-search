@@ -3,7 +3,7 @@ export const Genres = [
   'Keyboard',
   'Orchestral',
   'Stage',
-  'Vocal'
-]
+  'Vocal',
+];
 
 export type Genre = (typeof Genres)[number];

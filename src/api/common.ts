@@ -1,4 +1,4 @@
-import {Genre} from "../domain/Genre";
+import { Genre } from '../domain/Genre';
 
 export interface Status {
   rows: number
