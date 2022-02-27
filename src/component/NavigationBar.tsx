@@ -7,10 +7,6 @@ import { useNavigate } from 'react-router-dom';
 const NavigationBar: VFC = () => {
   const navigate = useNavigate();
 
-  const onComposerButtonClick = () => {
-    navigate('/composers');
-  };
-
   return (
     <AppBar
       position="static"
@@ -28,7 +24,7 @@ const NavigationBar: VFC = () => {
 
         <Button
           sx={{ color: 'white', display: 'block' }}
-          onClick={onComposerButtonClick}
+          onClick={() => navigate('/composers')}
         >
           Composers
         </Button>

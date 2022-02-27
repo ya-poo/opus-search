@@ -22,18 +22,10 @@ const ComposerTable: VFC<ComposerTableProps> = (props) => {
   const [selectedPeriod, setPeriod] = useState<Period | 'All'>('All');
   const [showPopularComposers, setShowPopularComposers] = useState(true);
 
-  const onPeriodButtonClick = (period: Period | 'All') => {
-    setPeriod(period);
-  };
-
   const shouldShow = (composer: Composer): boolean => {
     const okPeriod = selectedPeriod === 'All' || composer.epoch === selectedPeriod;
     const popular = !showPopularComposers || props.popularComposerIds.includes(composer.id);
     return okPeriod && popular;
-  };
-
-  const onRowClick = (id: number) => {
-    navigate(`/composers/${id}`);
   };
 
   return (
@@ -42,7 +34,7 @@ const ComposerTable: VFC<ComposerTableProps> = (props) => {
         {['All'].concat(Periods).map((period) => (
           <Button
             variant={period === selectedPeriod ? 'contained' : 'outlined'}
-            onClick={() => onPeriodButtonClick(period)}
+            onClick={() => setPeriod(period)}
           >
             {period}
           </Button>
@@ -80,7 +72,7 @@ const ComposerTable: VFC<ComposerTableProps> = (props) => {
           portrait: composer.portrait,
           id: composer.id,
         }))}
-        onRowClick={(_, rowData) => (rowData ? onRowClick(rowData.id) : {})}
+        onRowClick={(_, rowData) => (rowData ? navigate(`/composers/${rowData.id}`) : {})}
         options={{
           search: true,
           showTitle: false,

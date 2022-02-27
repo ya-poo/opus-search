@@ -16,10 +16,6 @@ const ComposerWorkTable: VFC<ComposerWorkTableProps> = (props) => {
   const [showPopularWorks, setShowPopularWorks] = useState(false);
   const [showRecommendedWorks, setShowRecommendedWorks] = useState(false);
 
-  const onGenreButtonClick = (genre: Genre | 'All') => {
-    setSelectGenre(genre);
-  };
-
   const shouldShow = (work: Work): boolean => {
     const okGenre = selectedGenre === 'All' || work.genre === selectedGenre;
     const popular = !showPopularWorks || work.popular === '1';
@@ -34,7 +30,7 @@ const ComposerWorkTable: VFC<ComposerWorkTableProps> = (props) => {
         {['All'].concat(Genres).map((genre) => (
           <Button
             variant={genre === selectedGenre ? 'contained' : 'outlined'}
-            onClick={() => onGenreButtonClick(genre)}
+            onClick={() => setSelectGenre(genre)}
           >
             {genre}
           </Button>
