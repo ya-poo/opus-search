@@ -1,18 +1,17 @@
-import React from 'react';
+import React, {VFC} from 'react';
 import './App.css';
-import {useListComposers} from "./hooks/useListComposers";
-import {Button, Container} from "@mui/material";
-import {ComposerList} from "./component/ComposerList";
+import {Navigate, Route, Routes} from "react-router-dom";
+import {ComposersPage} from "./page/Composers";
+import {Container} from "@mui/material";
 
-const App = () => {
-  const {composers, isLoading, fetchPopularComposers} = useListComposers();
-
+const App: VFC = () => {
   return (
     <div className="App">
-      <Container>
-        <h1>Popular Composers</h1>
-        <Button variant="contained" onClick={fetchPopularComposers}>Search</Button>
-        <ComposerList composers={composers} isLoading={isLoading}/>
+      <Container maxWidth='xl'>
+        <Routes>
+          <Route path="/" element={<ComposersPage/>}/>
+          <Route path="*" element={<Navigate to="/"/>}/>
+        </Routes>
       </Container>
     </div>
   );

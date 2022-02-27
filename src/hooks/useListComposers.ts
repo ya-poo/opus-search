@@ -27,6 +27,6 @@ export const useListComposers = () => {
   return {
     composers,
     isLoading,
-    fetchPopularComposers: fetchPopularComposers
+    fetchPopularComposers
   }
 }
