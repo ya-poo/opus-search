@@ -9,6 +9,6 @@ export const Periods = [
   '20th Century',
   'Post-War',
   '21st Century',
-] as const;
+];
 
 export type Period = (typeof Periods)[number];
