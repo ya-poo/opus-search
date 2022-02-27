@@ -4,21 +4,7 @@ import {AppBar, Box, Button, CircularProgress, Container, Toolbar} from "@mui/ma
 import {ComposerResponse} from "../api/ComposerResponse";
 import {apiClient} from "../api/lib/apiClient";
 import {Composer} from "../api/common";
-
-const Periods = [
-  'Medieval',
-  'Renaissance',
-  'Baroque',
-  'Classical',
-  'Early Romantic',
-  'Romantic',
-  'Late Romantic',
-  '20th Century',
-  'Post-War',
-  '21st Century',
-] as const;
-
-type Period = (typeof Periods)[number];
+import {Period, Periods} from "../domain/Period";
 
 export const ComposersPage: VFC = () => {
   const [composers, setComposers] = useState<Array<Composer>>([]);

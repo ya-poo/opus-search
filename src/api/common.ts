@@ -1,3 +1,5 @@
+import {Genre} from "../domain/Genre";
+
 export interface Status {
   rows: number
 }
@@ -20,13 +22,3 @@ export interface Work {
   id: string
   genre: Genre
 }
-
-export const Genres = [
-  'Chamber',
-  'Keyboard',
-  'Orchestral',
-  'Stage',
-  'Vocal'
-]
-
-export type Genre = (typeof Genres)[number];

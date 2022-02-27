@@ -1,7 +1,8 @@
 import {useState, VFC} from "react";
 import MaterialTable from "@material-table/core";
-import {Composer, Genre, Genres, Work} from "../api/common";
+import {Composer, Work} from "../api/common";
 import {Button, ButtonGroup, FormControlLabel, FormGroup, Switch} from "@mui/material";
+import {Genre, Genres} from "../domain/Genre";
 
 interface ComposerWorkTableProps {
   composer: Composer
