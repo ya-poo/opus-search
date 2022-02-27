@@ -12,6 +12,11 @@ interface ComposerTableProps {
   popularComposerIds: number[],
 }
 
+const toYear = (date: string): string => {
+  const a = new Date(date);
+  return a.getFullYear().toString();
+};
+
 const ComposerTable: VFC<ComposerTableProps> = (props) => {
   const navigate = useNavigate();
   const [selectedPeriod, setPeriod] = useState<Period | 'All'>('All');
@@ -58,8 +63,8 @@ const ComposerTable: VFC<ComposerTableProps> = (props) => {
         columns={[
           { title: 'Name', field: 'name', align: 'left' },
           { title: 'Complete Name', field: 'completeName' },
-          { title: 'Birth', field: 'birth' },
-          { title: 'Death', field: 'death' },
+          { title: 'Birth Year', field: 'birth' },
+          { title: 'Death Year', field: 'death' },
           { title: 'Epoch', field: 'epoch' },
           {
             field: 'portrait',
@@ -69,8 +74,8 @@ const ComposerTable: VFC<ComposerTableProps> = (props) => {
         data={props.composers.filter((composer) => shouldShow(composer)).map((composer) => ({
           name: composer.name,
           completeName: composer.complete_name,
-          birth: composer.birth,
-          death: composer.death,
+          birth: toYear(composer.birth),
+          death: toYear(composer.death),
           epoch: composer.epoch,
           portrait: composer.portrait,
           id: composer.id,

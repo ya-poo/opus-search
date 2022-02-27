@@ -64,7 +64,6 @@ const ComposerWorkTable: VFC<ComposerWorkTableProps> = (props) => {
         title={`Works of ${props.composer.name}`}
         columns={[
           { title: 'Title', field: 'title' },
-          { title: 'Subtitle', field: 'subtitle' },
           { title: 'Genre', field: 'genre' },
         ]}
         data={props.works.filter((work) => shouldShow(work)).map((work) => ({
@@ -72,7 +71,6 @@ const ComposerWorkTable: VFC<ComposerWorkTableProps> = (props) => {
           popular: work.popular,
           recommended: work.recommended,
           genre: work.genre,
-          subtitle: work.subtitle,
         }))}
         options={{
           search: true,
