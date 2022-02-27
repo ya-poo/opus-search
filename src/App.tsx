@@ -4,10 +4,12 @@ import {Navigate, Route, Routes} from "react-router-dom";
 import {ComposersPage} from "./page/Composers";
 import {Container} from "@mui/material";
 import {ComposerWorks} from "./page/ComposerWorks";
+import {NavigationBar} from "./component/NavigationBar";
 
 const App: VFC = () => {
   return (
     <div className='App'>
+      <NavigationBar/>
       <Container maxWidth='xl'>
         <Routes>
           <Route path='/composers' element={<ComposersPage/>}/>
