@@ -1,5 +1,4 @@
 import React, { VFC } from 'react';
-import './App.css';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Container } from '@mui/material';
 import ComposerWorks from './page/ComposerWorks';
