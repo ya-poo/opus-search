@@ -12,10 +12,7 @@ interface ComposerTableProps {
   popularComposerIds: number[],
 }
 
-const toYear = (date: string): string => {
-  const a = new Date(date);
-  return a.getFullYear().toString();
-};
+const toYear = (date: string): string => (new Date(date)).getFullYear().toString();
 
 const ComposerTable: VFC<ComposerTableProps> = (props) => {
   const navigate = useNavigate();
@@ -35,6 +32,7 @@ const ComposerTable: VFC<ComposerTableProps> = (props) => {
           <Button
             variant={period === selectedPeriod ? 'contained' : 'outlined'}
             onClick={() => setPeriod(period)}
+            size="medium"
           >
             {period}
           </Button>
